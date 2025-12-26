@@ -35,5 +35,4 @@ class EnsureIdempotency
 
         return $response;
     }
-
 }

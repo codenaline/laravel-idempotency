@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Codenaline\LaravelIdempotency;
 
-use Codenaline\LaravelIdempotency\Commands\LaravelIdempotencyCommand;
 use Codenaline\LaravelIdempotency\Commands\PurgeExpiredIdempotencyKeys;
 use Codenaline\LaravelIdempotency\Middleware\EnsureIdempotency;
 use Spatie\LaravelPackageTools\Package;

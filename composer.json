@@ -1,11 +1,15 @@
 {
     "name": "codenaline/laravel-idempotency",
-    "description": "This is my package laravel-idempotency",
+    "description": "Laravel middleware and drivers for handling Idempotency Keys (Cache, Database, Redis).",
     "keywords": [
-        "codenaline",
         "laravel",
-        "laravel-idempotency"
+        "idempotency",
+        "middleware",
+        "redis",
+        "database",
+        "cache"
     ],
+    "type": "library",
     "homepage": "https://github.com/codenaline/laravel-idempotency",
     "license": "MIT",
     "authors": [

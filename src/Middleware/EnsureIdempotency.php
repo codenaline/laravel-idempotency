@@ -27,12 +27,22 @@ class EnsureIdempotency
         }
 
         if (LaravelIdempotency::exists($key)) {
-            return response()->json(LaravelIdempotency::get($key));
+            $storedResponse = LaravelIdempotency::get($key);
+
+            return response(
+                $storedResponse['content'],
+                $storedResponse['status'],
+                $storedResponse['headers']
+            );
         }
 
         $response = $next($request);
 
-        LaravelIdempotency::store($key, $response->getContent(), $ttl);
+        LaravelIdempotency::store($key, [
+            'content' => $response->getContent(),
+            'status' => $response->getStatusCode(),
+            'headers' => $response->headers->all(),
+        ], $ttl);
 
         return $response;
     }

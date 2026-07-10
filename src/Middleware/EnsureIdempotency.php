@@ -6,13 +6,14 @@ namespace Codenaline\LaravelIdempotency\Middleware;
 
 use Closure;
 use Codenaline\LaravelIdempotency\Facades\LaravelIdempotency;
+use Illuminate\Http\Request;
 
 class EnsureIdempotency
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @return mixed
      */
     public function handle($request, Closure $next, ?int $ttl = null)

@@ -32,6 +32,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Lock Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Requests with the same idempotency key are serialized through Laravel's
+    | cache lock API before the request handler is executed.
+    |
+    */
+
+    'lock' => [
+        'store' => env('IDEMPOTENCY_LOCK_STORE'),
+        'seconds' => env('IDEMPOTENCY_LOCK_SECONDS', 10),
+        'wait_seconds' => env('IDEMPOTENCY_LOCK_WAIT_SECONDS', 10),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Drivers Configuration
     |--------------------------------------------------------------------------
     |

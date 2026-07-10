@@ -40,6 +40,12 @@ return [
 
     'default' => env('IDEMPOTENCY_DRIVER', 'redis'),
 
+    'lock' => [
+        'store' => env('IDEMPOTENCY_LOCK_STORE'),
+        'seconds' => env('IDEMPOTENCY_LOCK_SECONDS', 10),
+        'wait_seconds' => env('IDEMPOTENCY_LOCK_WAIT_SECONDS', 10),
+    ],
+
     'drivers' => [
 
         'redis' => [
@@ -120,6 +126,7 @@ For example:
 
 Each request must include the idempotency header.  
 If the same key is reused, the previous response will be returned instead of re‑processing.
+Requests with the same key are serialized with Laravel's cache lock API before your route handler runs.
 
 ---
 

@@ -16,7 +16,6 @@ class LaravelIdempotencyServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-idempotency')
             ->hasConfigFile()
-            ->hasViews()
             ->hasMigration('create_idempotency_table')
             ->hasCommand(PurgeExpiredIdempotencyKeys::class);
     }
